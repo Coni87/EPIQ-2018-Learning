@@ -18,7 +18,11 @@ use Libraries.Interface.Events.BehaviorEvent
 class Main is Game
     Drawable box
     Color color
+    Drawable box2
+    number timer = 0
 
+    boolean firedNext = false
+    
     action Main
         StartGame()
     end
@@ -27,13 +31,24 @@ class Main is Game
         box:LoadFilledRectangle(300,200,color:Red())
         box:SetPosition(250,250)
         Add(box)
-
+ 
         RotationBehavior rotate
         box:AddBehavior(rotate)
+ 
+        box2:LoadFilledRectangle(300,200,color:Blue())
+        box2:SetPosition(250,50)
+        Add(box2)
+        
+
     end
 
     action Update (number seconds)
-        
+        timer = timer + seconds
+        if timer > 5 and firedNext = false
+            RotationBehavior rotate
+            box2:AddBehavior(rotate)
+            firedNext = true
+        end
     end
 end
     

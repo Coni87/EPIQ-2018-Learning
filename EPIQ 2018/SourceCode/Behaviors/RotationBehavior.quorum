@@ -1,0 +1,27 @@
+use Libraries.Interface.Behaviors.Behavior
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Game.Graphics.Color
+use Libraries.Game.Graphics.Drawable
+use Libraries.Sound.Speech
+use Libraries.Interface.Item
+
+class RotationBehavior is Behavior
+    Drawable item = undefined
+    number timer = 0
+
+    action Run(BehaviorEvent event)
+        Item value = event:GetItem()
+        item = cast(Drawable, value)
+    end
+
+    action Update(number seconds)
+        item:Rotate(10*seconds)
+    end
+
+    action Dispose
+    end
+
+    action IsFinished returns boolean
+        return false
+    end
+end

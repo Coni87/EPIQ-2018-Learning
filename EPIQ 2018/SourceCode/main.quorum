@@ -1,0 +1,39 @@
+//USING CLASSES
+//use Blah
+//class Main
+//Blah boo
+//    action Main
+//        output "hi"
+//        boo:Main()
+//    end
+//end
+
+//USER INTERFACE
+use Libraries.Game.Game
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Graphics.Color
+use Libraries.Interface.Behaviors.Behavior
+use Libraries.Interface.Events.BehaviorEvent
+
+class Main is Game
+    Drawable box
+    Color color
+
+    action Main
+        StartGame()
+    end
+
+    action CreateGame
+        box:LoadFilledRectangle(300,200,color:Red())
+        box:SetPosition(250,250)
+        Add(box)
+
+        RotationBehavior rotate
+        box:AddBehavior(rotate)
+    end
+
+    action Update (number seconds)
+        
+    end
+end
+    

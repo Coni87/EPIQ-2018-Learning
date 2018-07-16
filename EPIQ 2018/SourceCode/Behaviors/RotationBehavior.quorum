@@ -7,6 +7,8 @@ use Libraries.Interface.Item
 
 class RotationBehavior is Behavior
     Drawable item = undefined
+    Color teal
+    Speech speech
     number timer = 0
 
     action Run(BehaviorEvent event)
@@ -15,13 +17,17 @@ class RotationBehavior is Behavior
     end
 
     action Update(number seconds)
-        item:Rotate(10*seconds)
+        item:Rotate(90*seconds)
+        timer = timer + seconds   
     end
 
     action Dispose
+        teal:SetColor(0.008,0.517,0.510,1)
+        item:SetColor(teal)
+        speech:Say ("Goodbye", false)
     end
 
     action IsFinished returns boolean
-        return false
+        return timer > 5.0
     end
 end

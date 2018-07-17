@@ -18,6 +18,7 @@ use Libraries.Sound.Speech
 use Libraries.Interface.Controls.Button
 use Libraries.Interface.Controls.Tree
 use Libraries.Interface.Controls.TreeItem
+use Libraries.Game.Graphics.Texture
 
 class Main is Game
     Color color    
@@ -31,7 +32,31 @@ class Main is Game
     boolean firedNext = false
     Tree tree
     TreeItem ti
-    
+    TreeItem ti2
+    TreeItem ti3
+    TreeItem ti4
+    TreeItem ti5
+    TreeItem ti6
+    TreeItem ti7
+    TreeItem ti8
+    TreeItem ti9
+    TreeItem ti10
+    TreeItem ti11
+    TreeItem ti12
+    Texture red
+    Texture orange
+    Texture yellow
+    Texture green
+    Texture blue
+    Texture violet
+    Texture white
+    Texture black
+    Texture brown
+    Texture gray
+    Texture rainbow
+    Texture neutral
+
+
     action Main
         StartGame()
     end
@@ -44,6 +69,7 @@ class Main is Game
         
         StartButton start
         button:SetBehavior(start)
+        start:SetDrawable(box)
 
         button2:Initialize(200,100,"Cancel")
         button2:SetPosition(550, 300)
@@ -61,8 +87,8 @@ class Main is Game
         box:SetPosition(250,400)
         Add(box)
 
-        RotationBehavior rotate
-        box:AddBehavior(rotate)
+//        RotationBehavior rotate
+//       box:AddBehavior(rotate)
 
         box2:LoadFilledRectangle(350,100,color:Blue())
         box2:SetPosition(250,50)
@@ -71,10 +97,53 @@ class Main is Game
         creature:LoadFilledCircle(50,color:Purple())
         creature:SetPosition(0,250)
         Add(creature)
-        
-        ti:Initialize("John")
-        tree:Add(ti)
+
+        red:LoadFromFile("Media/red.png")
+        orange:LoadFromFile("Media/orange.png")
+        yellow:LoadFromFile("Media/yellow.png")
+        green:LoadFromFile("Media/green.png")
+        blue:LoadFromFile("Media/blue.png")
+        violet:LoadFromFile("Media/violet.png")
+        white:LoadFromFile("Media/white.png")
+        black:LoadFromFile("Media/black.png")        
+        brown:LoadFromFile("Media/brown.png")
+        gray:LoadFromFile("Media/gray.png")
+        rainbow:LoadFromFile("Media/rainbow.png")
+        neutral:LoadFromFile("Media/neutral.png")
+
+
+
+        ti:Initialize("Red",red)
+        ti2:Initialize("Orange",orange)
+        ti3:Initialize("Yellow",yellow)
+        ti4:Initialize("Green",green)
+        ti5:Initialize("Blue",blue)
+        ti6:Initialize("Violet",violet)
+        ti7:Initialize("Black",black)
+        ti8:Initialize("White",white)
+        ti9:Initialize("Brown",brown)
+        ti10:Initialize("Gray",gray)
+        ti11:Initialize("Rainbow",rainbow)
+        ti12:Initialize("Neutral",neutral)
+
+        tree:Add(ti11)
+        tree:Add(ti12)
+        ti11:Add(ti)
+        ti11:Add(ti2)
+        ti11:Add(ti3)
+        ti11:Add(ti4)
+        ti11:Add(ti5)
+        ti11:Add(ti6)
+        ti12:Add(ti7)
+        ti12:Add(ti8)
+        ti12:Add(ti9)
+        ti12:Add(ti10)
+
+
+        tree:SetPosition(75,500)
+        tree:Resize()
         Add(tree)
+
     end
 
     action Update (number seconds)

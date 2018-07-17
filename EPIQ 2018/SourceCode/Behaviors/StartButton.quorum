@@ -2,11 +2,22 @@ use Libraries.Interface.Behaviors.Behavior
 use Libraries.Interface.Events.BehaviorEvent
 use Libraries.Sound.Speech
 use Libraries.Interface.Item
+use Libraries.Game.Graphics.Drawable
+
 
 class StartButton is Behavior
     Speech speech
+    Drawable thing = undefined
 
     action Run(BehaviorEvent event)
-        speech:Say("You clicked! Let's go!", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
+        speech:Say("Let's go!", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
+        if thing not= undefined
+            RotationBehavior rotate
+            thing:AddBehavior(rotate)
+        end
+    end
+
+    action SetDrawable (Drawable item)
+        thing = item
     end
 end

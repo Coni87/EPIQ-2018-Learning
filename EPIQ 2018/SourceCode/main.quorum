@@ -42,6 +42,8 @@ class Main is Game
     DesktopConfiguration config
     Layout startButtonLayout
     Layout closeButtonLayout
+    Layout box1Layout
+    Layout box2Layout
 
 /*    
     Tree tree
@@ -82,8 +84,8 @@ class Main is Game
         startButtonLayout:SetPercentageWidth(0.1)
         startButtonLayout:SetPercentageX(0.5)
         startButtonLayout:SetPercentageY(0.5)
-//        startButtonLayout:SetPercentageOriginX(0.5)
         startButtonLayout:SetPercentageOriginY(0.5)
+        startButtonLayout:SetPercentageOriginX(0.5)
 
         button:Initialize(200, 100, "Click to start!")
         button:AddLayout(startButtonLayout)
@@ -110,22 +112,37 @@ class Main is Game
         CancelButton cancel
         button2:SetBehavior(cancel)
         
+        //TAB FOCUS ORDER
         button:SetPreviousFocus(button2)
         button:SetNextFocus(button2)
         button2:SetPreviousFocus(button)
         button2:SetNextFocus(button)
         
+        box1Layout:SetPercentageHeight(0.1)
+        box1Layout:SetPercentageWidth(0.5)
+        box1Layout:SetPercentageX(0.5)
+        box1Layout:SetPercentageY(0.75)
+        box1Layout:SetPercentageOriginY(0.5)
+        box1Layout:SetPercentageOriginX(0.5)
 
         gradient:Set(color:Blue(),color:Blue(),color:Red(),color:Red())
         box:LoadFilledRectangle(350,100,gradient)
-        box:SetPosition(250,400)
+        box:AddLayout(box1Layout)
+        box:Resize()
         Add(box)
 
 //       RotationBehavior rotate
 //       box:AddBehavior(rotate)
+        box2Layout:SetPercentageHeight(0.1)
+        box2Layout:SetPercentageWidth(0.5)
+        box2Layout:SetPercentageX(0.5)
+        box2Layout:SetPercentageY(0.25)
+        box2Layout:SetPercentageOriginY(0.5)
+        box2Layout:SetPercentageOriginX(0.5)
 
         box2:LoadFilledRectangle(350,100,gradient)
-        box2:SetPosition(250,50)
+        box2:AddLayout(box2Layout)
+        box2:Resize()
         Add(box2)
 
         creature:LoadFilledCircle(50,color:Purple())

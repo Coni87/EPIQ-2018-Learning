@@ -39,6 +39,9 @@ class Main is Game
     InputSet spaceSet
     KeyboardEvent keys
     Gradient gradient
+    DesktopConfiguration config
+    Layout startButtonLayout
+    Layout closeButtonLayout
 
 /*    
     Tree tree
@@ -69,22 +72,40 @@ class Main is Game
 
 
     action Main
+        config = GetDesktopConfiguration()
+        config:resizable = true
         StartGame()
     end
 
     action CreateGame
+        startButtonLayout:SetPercentageHeight(0.1)
+        startButtonLayout:SetPercentageWidth(0.1)
+        startButtonLayout:SetPercentageX(0.5)
+        startButtonLayout:SetPercentageY(0.5)
+//        startButtonLayout:SetPercentageOriginX(0.5)
+        startButtonLayout:SetPercentageOriginY(0.5)
+
         button:Initialize(200, 100, "Click to start!")
-        button:SetPosition(200,300)
+        button:AddLayout(startButtonLayout)
         Add(button)
+        button:Resize()
         button:Focus()
         
         StartButton start
         button:SetBehavior(start)
         start:SetDrawable(box)
 
+        closeButtonLayout:SetPercentageHeight(0.05)
+        closeButtonLayout:SetPercentageWidth(0.05)
+        closeButtonLayout:SetPercentageX(1)
+        closeButtonLayout:SetPercentageY(1)
+        closeButtonLayout:SetPercentageOriginX(1)
+        closeButtonLayout:SetPercentageOriginY(1)
+
         button2:Initialize(50,50,"Close")
-        button2:SetPosition(GetScreenWidth()-50,GetScreenHeight()-50)
+        button2:AddLayout(closeButtonLayout)
         Add(button2)
+        button2:Resize()
 
         CancelButton cancel
         button2:SetBehavior(cancel)
@@ -112,6 +133,7 @@ class Main is Game
         Add(creature)
 
         spaceSet:SetKeyboardInput(keys:SPACE)
+
         InputTable defaultTable = GetDefaultInputTable()
         InputBehavior behavior 
         defaultTable:Add(spaceSet,behavior)

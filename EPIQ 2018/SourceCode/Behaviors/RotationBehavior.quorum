@@ -17,7 +17,7 @@ class RotationBehavior is Behavior
     end
 
     action Update(number seconds)
-        item:Rotate(90*seconds)
+        item:Rotate(18*seconds)
         timer = timer + seconds   
     end
 

@@ -19,6 +19,7 @@ class Main is Game
     Drawable box
     Color color
     Drawable box2
+    Drawable creature
     number timer = 0
 
     boolean firedNext = false
@@ -29,7 +30,7 @@ class Main is Game
 
     action CreateGame
         box:LoadFilledRectangle(300,200,color:Red())
-        box:SetPosition(250,250)
+        box:SetPosition(250,350)
         Add(box)
  
         RotationBehavior rotate
@@ -39,7 +40,9 @@ class Main is Game
         box2:SetPosition(250,50)
         Add(box2)
         
-
+        creature:LoadFilledCircle(50,color:Purple())
+        creature:SetPosition(0,250)
+        Add(creature)
     end
 
     action Update (number seconds)

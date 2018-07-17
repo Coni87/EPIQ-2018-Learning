@@ -8,11 +8,8 @@ use Libraries.Interface.Item2D
 
 
 class CancelButton is Behavior
-    Speech speech
 
     action Run(BehaviorEvent event)
-        speech:Say("See you later", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
-
         GameStateManager manager
         Game game = manager:GetGame()
         game:Exit()

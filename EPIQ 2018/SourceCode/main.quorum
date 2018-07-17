@@ -30,7 +30,7 @@ class Main is Game
     Color color    
     Drawable box
     Drawable box2
-    Drawable creature
+    Drawable person
     Button button
     Button button2
     Speech speech
@@ -44,6 +44,7 @@ class Main is Game
     Layout closeButtonLayout
     Layout box1Layout
     Layout box2Layout
+    Layout personLayout
 
 /*    
     Tree tree
@@ -145,9 +146,17 @@ class Main is Game
         box2:Resize()
         Add(box2)
 
-        creature:LoadFilledCircle(50,color:Purple())
-        creature:SetPosition(0,250)
-        Add(creature)
+        personLayout:SetPercentageWidth(0.05)
+        personLayout:SetPercentageHeight(0.05)
+        personLayout:SetPercentageX(0)
+        personLayout:SetPercentageY(0.5)
+        personLayout:SetPercentageOriginY(0.5)
+
+
+        person:LoadFilledCircle(50,color:Purple())
+        person:AddLayout(personLayout)
+        person:Resize()
+        Add(person)
 
         spaceSet:SetKeyboardInput(keys:SPACE)
 

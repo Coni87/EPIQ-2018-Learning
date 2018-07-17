@@ -87,7 +87,7 @@ class Main is Game
         box:SetPosition(250,400)
         Add(box)
 
-//        RotationBehavior rotate
+//       RotationBehavior rotate
 //       box:AddBehavior(rotate)
 
         box2:LoadFilledRectangle(350,100,color:Blue())

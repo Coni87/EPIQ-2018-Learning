@@ -3,6 +3,9 @@ use Libraries.Interface.Events.BehaviorEvent
 use Libraries.Sound.Speech
 use Libraries.Interface.Item
 use Libraries.Game.Graphics.Drawable
+use Libraries.Game.GameStateManager
+use Libraries.Game.Game
+use Libraries.Interface.Item2D
 
 
 class StartButton is Behavior
@@ -15,6 +18,10 @@ class StartButton is Behavior
             RotationBehavior rotate
             thing:AddBehavior(rotate)
         end
+        
+        GameStateManager manager
+        Game game = manager:GetGame()
+        game:Remove(cast(Item2D, event:GetItem()))
     end
 
     action SetDrawable (Drawable item)

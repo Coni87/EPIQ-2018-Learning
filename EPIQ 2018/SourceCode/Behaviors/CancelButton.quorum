@@ -3,11 +3,11 @@ use Libraries.Interface.Events.BehaviorEvent
 use Libraries.Sound.Speech
 use Libraries.Interface.Item
 
-class OutputBehavior is Behavior
+class CancelButton is Behavior
     Speech speech
 
     action Run(BehaviorEvent event)
-        speech:Say("You clicked! Let's go!", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
+        speech:Say("See you later", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
         
 //        Item item = event:GetItem()
     end

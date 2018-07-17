@@ -22,8 +22,8 @@ class Main is Game
     Drawable box
     Drawable box2
     Drawable creature
-    Button button
-    Button button2
+    ButtonFocus button
+    ButtonFocus button2
     Speech speech
     number timer = 0
 
@@ -36,24 +36,25 @@ class Main is Game
 
     action CreateGame
         button:Initialize(200, 100, "Click to start!")
-        button:SetPosition(100,300)
+        button:SetPosition(200,300)
         Add(button)
+        button:Focus()
         
-        OutputBehavior buttonClicked
-        button:SetBehavior(buttonClicked)
-        button:SetFocusable(true)
-
+        StartButton start
+        button:SetBehavior(start)
 
         button2:Initialize(200,100,"Cancel")
-        button2:SetPosition(350,300)
+        button2:SetPosition(550, 300)
         Add(button2)
-        
-        button2:SetBehavior(buttonClicked)
-        button2:SetFocusable(true)
 
+        CancelButton cancel
+        button2:SetBehavior(cancel)
         
-        
-       
+        button:SetPreviousFocus(button2)
+        button:SetNextFocus(button2)
+        button2:SetPreviousFocus(button)
+        button2:SetNextFocus(button)
+
         box:LoadFilledRectangle(350,100,color:Red())
         box:SetPosition(250,400)
         Add(box)

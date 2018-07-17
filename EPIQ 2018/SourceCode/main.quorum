@@ -19,6 +19,10 @@ use Libraries.Interface.Controls.Button
 use Libraries.Interface.Controls.Tree
 use Libraries.Interface.Controls.TreeItem
 use Libraries.Game.Graphics.Texture
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Game.InputSet
+use Libraries.Game.InputTable
+use Libraries.Game.Graphics.Gradient
 
 class Main is Game
     Color color    
@@ -30,6 +34,11 @@ class Main is Game
     Speech speech
     number timer = 0
     boolean firedNext = false
+    InputSet spaceSet
+    KeyboardEvent keys
+    Gradient gradient
+
+/*    
     Tree tree
     TreeItem ti
     TreeItem ti2
@@ -54,7 +63,7 @@ class Main is Game
     Texture brown
     Texture gray
     Texture rainbow
-    Texture neutral
+    Texture neutral*/
 
 
     action Main
@@ -71,8 +80,8 @@ class Main is Game
         button:SetBehavior(start)
         start:SetDrawable(box)
 
-        button2:Initialize(200,100,"Cancel")
-        button2:SetPosition(550, 300)
+        button2:Initialize(50,50,"Close")
+        button2:SetPosition(GetScreenWidth()-50,GetScreenHeight()-50)
         Add(button2)
 
         CancelButton cancel
@@ -82,15 +91,17 @@ class Main is Game
         button:SetNextFocus(button2)
         button2:SetPreviousFocus(button)
         button2:SetNextFocus(button)
+        
 
-        box:LoadFilledRectangle(350,100,color:Red())
+        gradient:Set(color:Blue(),color:Blue(),color:Red(),color:Red())
+        box:LoadFilledRectangle(350,100,gradient)
         box:SetPosition(250,400)
         Add(box)
 
 //       RotationBehavior rotate
 //       box:AddBehavior(rotate)
 
-        box2:LoadFilledRectangle(350,100,color:Blue())
+        box2:LoadFilledRectangle(350,100,gradient)
         box2:SetPosition(250,50)
         Add(box2)
 
@@ -98,6 +109,12 @@ class Main is Game
         creature:SetPosition(0,250)
         Add(creature)
 
+        spaceSet:SetKeyboardInput(keys:SPACE)
+        InputTable defaultTable = GetDefaultInputTable()
+        InputBehavior behavior 
+        defaultTable:Add(spaceSet,behavior)
+
+/* TREE STUFF
         red:LoadFromFile("Media/red.png")
         orange:LoadFromFile("Media/orange.png")
         yellow:LoadFromFile("Media/yellow.png")
@@ -143,6 +160,7 @@ class Main is Game
         tree:SetPosition(75,500)
         tree:Resize()
         Add(tree)
+*/
 
     end
 

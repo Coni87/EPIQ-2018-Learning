@@ -4,10 +4,12 @@ use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Drawable
 use Libraries.Sound.Speech
 use Libraries.Interface.Item
+use Libraries.Game.Graphics.Gradient
 
 class RotationBehavior is Behavior
     Drawable item = undefined
-    Color teal
+    Color color
+    Gradient gradient
     Speech speech
     number timer = 0
     boolean speak = false
@@ -27,8 +29,13 @@ class RotationBehavior is Behavior
     end
 
     action Dispose
-        teal:SetColor(0.008,0.517,0.510,1)
-        item:SetColor(teal)
+//        teal:SetColor(0.008,0.517,0.510,1)
+//        item:SetColor(teal)
+
+
+        gradient:Set(color:Green(),color:Green(),color:White(),color:White())
+        item:SetGradient(gradient)
+        
         if speak
             speech:Say ("And Go!", false)
         end

@@ -14,13 +14,18 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Graphics.Color
 use Libraries.Interface.Behaviors.Behavior
 use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Sound.Speech
+use Libraries.Interface.Controls.Button
 
 class Main is Game
+    Color color    
     Drawable box
-    Color color
     Drawable box2
     Drawable creature
+    Button button
+    Speech speech
     number timer = 0
+
 
     boolean firedNext = false
     
@@ -29,17 +34,21 @@ class Main is Game
     end
 
     action CreateGame
-        box:LoadFilledRectangle(300,200,color:Red())
-        box:SetPosition(250,350)
+        button:Initialize(200, 100, "Click to start!")
+        button:SetPosition(300,300)
+        Add(button)
+       
+        box:LoadFilledRectangle(350,100,color:Red())
+        box:SetPosition(250,400)
         Add(box)
- 
+
         RotationBehavior rotate
         box:AddBehavior(rotate)
- 
-        box2:LoadFilledRectangle(300,200,color:Blue())
+
+        box2:LoadFilledRectangle(350,100,color:Blue())
         box2:SetPosition(250,50)
         Add(box2)
-        
+
         creature:LoadFilledCircle(50,color:Purple())
         creature:SetPosition(0,250)
         Add(creature)
@@ -47,11 +56,14 @@ class Main is Game
 
     action Update (number seconds)
         timer = timer + seconds
+
         if timer > 5 and firedNext = false
             RotationBehavior rotate
+            rotate:SetSpeaking(true)
             box2:AddBehavior(rotate)
             firedNext = true
         end
+
     end
 end
     

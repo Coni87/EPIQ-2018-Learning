@@ -10,6 +10,11 @@ class RotationBehavior is Behavior
     Color teal
     Speech speech
     number timer = 0
+    boolean speak = false
+
+    action SetSpeaking(boolean value)
+        speak = value
+    end
 
     action Run(BehaviorEvent event)
         Item value = event:GetItem()
@@ -24,7 +29,9 @@ class RotationBehavior is Behavior
     action Dispose
         teal:SetColor(0.008,0.517,0.510,1)
         item:SetColor(teal)
-        speech:Say ("Goodbye", false)
+        if speak
+            speech:Say ("And Go!", false)
+        end
     end
 
     action IsFinished returns boolean

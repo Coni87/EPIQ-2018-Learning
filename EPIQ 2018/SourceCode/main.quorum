@@ -23,6 +23,8 @@ use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Game.InputSet
 use Libraries.Game.InputTable
 use Libraries.Game.Graphics.Gradient
+use Libraries.Interface.Layouts.Layout
+use Libraries.Game.DesktopConfiguration
 
 class Main is Game
     Color color    

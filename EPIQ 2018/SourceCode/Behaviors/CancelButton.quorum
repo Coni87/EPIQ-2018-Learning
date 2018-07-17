@@ -15,7 +15,6 @@ class CancelButton is Behavior
 
         GameStateManager manager
         Game game = manager:GetGame()
-        game:Remove(cast(Item2D, event:GetItem()))
         game:Exit()
     end
 end

@@ -16,6 +16,8 @@ use Libraries.Interface.Behaviors.Behavior
 use Libraries.Interface.Events.BehaviorEvent
 use Libraries.Sound.Speech
 use Libraries.Interface.Controls.Button
+use Libraries.Interface.Controls.Tree
+use Libraries.Interface.Controls.TreeItem
 
 class Main is Game
     Color color    
@@ -27,6 +29,8 @@ class Main is Game
     Speech speech
     number timer = 0
     boolean firedNext = false
+    Tree tree
+    TreeItem ti
     
     action Main
         StartGame()
@@ -67,6 +71,10 @@ class Main is Game
         creature:LoadFilledCircle(50,color:Purple())
         creature:SetPosition(0,250)
         Add(creature)
+        
+        ti:Initialize("John")
+        tree:Add(ti)
+        Add(tree)
     end
 
     action Update (number seconds)

@@ -8,7 +8,5 @@ class CancelButton is Behavior
 
     action Run(BehaviorEvent event)
         speech:Say("See you later", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
-        
-//        Item item = event:GetItem()
     end
 end

@@ -22,12 +22,10 @@ class Main is Game
     Drawable box
     Drawable box2
     Drawable creature
-    ButtonFocus button
-    ButtonFocus button2
+    Button button
+    Button button2
     Speech speech
     number timer = 0
-
-
     boolean firedNext = false
     
     action Main

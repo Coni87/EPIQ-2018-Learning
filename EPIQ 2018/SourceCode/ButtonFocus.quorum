@@ -1,3 +1,5 @@
+//used to show what button has focus, change Button to ButtonFocus on instantiation
+
 use Libraries.Interface.Controls.Button
 use Libraries.Sound.Speech
 use Libraries.Interface.Events.FocusEvent

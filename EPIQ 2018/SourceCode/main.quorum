@@ -238,6 +238,7 @@ class Main is Game
             rotate:SetSpeaking(true)
             box2:AddBehavior(rotate)
             firedNext = true
+        end
     end
 end
     

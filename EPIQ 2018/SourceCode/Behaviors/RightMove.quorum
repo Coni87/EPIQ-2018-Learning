@@ -1,0 +1,16 @@
+use Libraries.Interface.Behaviors.Behavior
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Interface.Item
+use Libraries.Interface.Item2D
+
+class RightMove is Behavior
+    action Run(BehaviorEvent event)
+        Item item = event:GetItem()
+        if item = undefined
+            output "Couldn't move because no item was focused."
+        elseif item is Item2D
+            Item2D item2D = cast(Item2D, item)
+            item2D:MoveX(10)
+        end
+    end
+end

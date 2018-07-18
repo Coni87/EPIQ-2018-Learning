@@ -164,22 +164,35 @@ class Main is Game
         person:SetNextFocus(button)
         person:SetPreviousFocus(button)
         SetFocus(button)
-        
-        person:SetInputGroup("Person")
-        InputTable personTable
-        personTable:SetIdentifier ("Person")
-        PersonMove personMove   
-        InputSet moveSet
-        moveSet:SetKeyboardInput(keys:RIGHT)        
-        moveSet:SetInputTrigger(moveSet:CONTINUE)     
-        personTable:Add(moveSet, personMove)
-        AddInputTable(personTable)
-
+ 
         spaceSet:SetKeyboardInput(keys:SPACE)
         InputTable defaultTable = GetDefaultInputTable()
         InputBehavior behavior 
-        defaultTable:Add(spaceSet,behavior)
+        defaultTable:Add(spaceSet,behavior)        
 
+        RightMove rightMove   
+        InputSet rightSet
+        rightSet:SetKeyboardInput(keys:RIGHT)        
+        rightSet:SetInputTrigger(rightSet:CONTINUE)     
+        defaultTable:Add(rightSet, rightMove)
+
+        LeftMove leftMove   
+        InputSet leftSet
+        leftSet:SetKeyboardInput(keys:LEFT)        
+        leftSet:SetInputTrigger(leftSet:CONTINUE)     
+        defaultTable:Add(leftSet, leftMove)        
+        
+        UpMove upMove   
+        InputSet upSet
+        upSet:SetKeyboardInput(keys:UP)        
+        upSet:SetInputTrigger(upSet:CONTINUE)     
+        defaultTable:Add(upSet, upMove)
+
+        DownMove downMove   
+        InputSet downSet
+        downSet:SetKeyboardInput(keys:DOWN)        
+        downSet:SetInputTrigger(downSet:CONTINUE)     
+        defaultTable:Add(downSet, downMove)
 /* TREE STUFF
         red:LoadFromFile("Media/red.png")
         orange:LoadFromFile("Media/orange.png")

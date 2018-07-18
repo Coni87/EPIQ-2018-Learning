@@ -37,7 +37,7 @@ class RotationBehavior is Behavior
         item:SetGradient(gradient)
         
         if speak
-            speech:Say ("And Go!", false)
+            speech:Say ("Go!", false)
         end
     end
 

@@ -14,7 +14,7 @@ class StartButton is Behavior
     boolean player = false
 
     action Run(BehaviorEvent event)
-        speech:Say("Let's go!", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
+        speech:Say("Get ready!", false)//false makes the game continue to run while the sound runs, true would stop the game while sound goes
         if thing not= undefined
             RotationBehavior rotate
             thing:AddBehavior(rotate)

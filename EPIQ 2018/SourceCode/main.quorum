@@ -152,14 +152,30 @@ class Main is Game
         personLayout:SetPercentageY(0.5)
         personLayout:SetPercentageOriginY(0.5)
 
-
         person:LoadFilledCircle(50,color:Purple())
         person:AddLayout(personLayout)
+        person:SetName("Person")
+        person:SetFocusable(true)
         person:Resize()
         Add(person)
+        
+        button:SetNextFocus(person)
+        button:SetPreviousFocus(person)
+        person:SetNextFocus(button)
+        person:SetPreviousFocus(button)
+        SetFocus(button)
+        
+        person:SetInputGroup("Person")
+        InputTable personTable
+        personTable:SetIdentifier ("Person")
+        PersonMove personMove   
+        InputSet moveSet
+        moveSet:SetKeyboardInput(keys:RIGHT)        
+        moveSet:SetInputTrigger(moveSet:CONTINUE)     
+        personTable:Add(moveSet, personMove)
+        AddInputTable(personTable)
 
         spaceSet:SetKeyboardInput(keys:SPACE)
-
         InputTable defaultTable = GetDefaultInputTable()
         InputBehavior behavior 
         defaultTable:Add(spaceSet,behavior)
@@ -222,8 +238,6 @@ class Main is Game
             rotate:SetSpeaking(true)
             box2:AddBehavior(rotate)
             firedNext = true
-        end
-
     end
 end
     

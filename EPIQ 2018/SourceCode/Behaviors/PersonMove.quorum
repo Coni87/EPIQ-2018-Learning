@@ -1,0 +1,21 @@
+use Libraries.Interface.Behaviors.Behavior
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Interface.Item
+use Libraries.Interface.Item2D
+
+class PersonMove is Behavior
+    action Run(BehaviorEvent event)
+        Item item = event:GetItem()
+
+        // There may not be a focused Item. If not, put something in the console
+        // so that we know what happened.
+        if item = undefined
+            output "Couldn't move because no item was focused."
+        elseif item is Item2D
+            // Cast our item to an Item2D (Drawable is a kind of Item2D)
+            // and then rotate it.
+            Item2D item2D = cast(Item2D, item)
+            item2D:MoveX(10)
+        end
+    end
+end
